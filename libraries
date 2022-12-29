@@ -1,0 +1,8 @@
+npm install @react-native-community/datetimepicker
+npm install react-native-modal
+npm install firebase 
+npm install --save react-native-image-picker (after do => react-native link react-native-image-picker)  (before do => npm install -g react-native-cli)
+npm install @react-navigation/native
+npm install react-native-modal
+npx expo install expo-image-picker
+npm install -g firebase-tools
