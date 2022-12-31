@@ -90,7 +90,7 @@ export default function AddIncome() {
   useEffect(async () => {
     const catList = [];
     try {
-      const querySnapshot = getDocs(collection(db, "IncCategory"));
+      const querySnapshot = await getDocs(collection(db, "IncCategory"));
       querySnapshot.forEach((doc) => {
         //   console.log(doc.id, JSON.stringify(doc.data()));
         catName = doc.data();
@@ -99,15 +99,14 @@ export default function AddIncome() {
         catList.push(getcat);
       });
 
-      //   console.log(catList)
+        // console.log(catList)
       catList.push({ label: "other", value: "other" });
       setCategory(catList);
-      console.log(category);
+      // console.log(category);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
   //  setMounted(true);
-   setLoading(false);
   }, []); // passing an empty array as second argument triggers the callback in useEffect only after the initial render thus replicating `componentDidMount` lifecycle behaviour
 
   function showDatePicker() {
@@ -364,9 +363,7 @@ export default function AddIncome() {
     }
   };
 
-  if (loading) {
-    return <ActivityIndicator />;
-  }
+  
   return (
     <View style={styles.container}>
       <Text style={styles.setFontSize}>Add Income</Text>
@@ -395,7 +392,7 @@ export default function AddIncome() {
           {!datePicker && (
             <View style={{ margin: 10 }}>
               <Pressable style={styles.dateButton} onPress={showDatePicker}>
-                <Text style={styles.dateText}>{date.toLocaleString()}</Text>
+                <Text style={styles.dateText}>{date.toDateString()}</Text>
               </Pressable>
             </View>
           )}

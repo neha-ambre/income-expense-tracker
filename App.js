@@ -7,6 +7,7 @@ import Login from "./Components/Login";
 import TopBarNavigator from "./Components/TopBarNavigator";
 
 import { RootSiblingParent } from "react-native-root-siblings";
+// import SMSTracking from "./Components/SMSTracking";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,12 +16,13 @@ export default function App() {
     <RootSiblingParent>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="toptabs"
+          initialRouteName="Add_Income"
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="toptabs" component={TopBarNavigator} />
           <Stack.Screen name="Add_Income" component={AddIncome} />
           <Stack.Screen name="AddImage" component={ImageInc} />
+          {/* <Stack.Screen name="SMSTracking" component={SMSTracking} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </RootSiblingParent>
